@@ -223,9 +223,9 @@
 <div class="floaters" id="floaters"></div>
 
 <div class="wrap">
-  <h1><span class="wiggle">🎂</span> 生日快乐鸭 <span class="wiggle">🎉</span></h1>
+  <h1><span class="wiggle">🎂</span> 生日快乐鸭，今天你最大！<span class="wiggle">🎉</span></h1>
   <p class="subtitle">
-    人在远方，祝福不能缺席～蛋糕送不到，那就先送你一个<b>超走心的抽奖机会</b>！
+    人在远方，蛋糕送不到，鸡腿更送不到，那就先送你一个抽奖机会，好歹是个电子仪式感！
   </p>
 
   <div class="name-editor">
@@ -243,11 +243,12 @@
 
   <button class="draw-btn" id="drawBtn">🎰 点我抽奖 🎰</button>
   <button class="view-btn" id="viewBtn">🎫 查看我的奖品卡</button>
-  <div class="hint">✨ 神秘大转盘，抽到才知道是什么～</div>
+  <div class="hint">✨ 神秘大转盘，抽到啥全看缘分，别怪我～</div>
 
   <p class="footnote">
-    *本转盘由寿星哥/姐姐纯手工代码打造，凝聚了 100% 的心意与 30% 的debug血泪。<br>
-    *最终解释权归送礼人所有，反正怎么解释都是为了让你开心 💗
+    *这个转盘凝聚了 100% 的心意，以及 0% 的编程经验（开玩笑的）<br>
+    *最终解释权归送礼人所有，反正怎么解释都是为了让你开心 💗<br>
+    *本活动纯属自愿参与，中奖不激动，没中也别打人 🙏
   </p>
   <button class="reset-link" id="resetLink">（测试用）重置抽奖记录</button>
 </div>
@@ -258,7 +259,7 @@
 
     <div id="prizeContent">
       <div class="bonus-banner" id="bonusBanner">
-        哎呦喂～抽到什么就是什么啦，再抽也是无效的哦！
+        哎呦喂～抽到什么就是什么啦，再抽也是无效的哦！（系统已经看穿你的小心思了 👀）
       </div>
       <div class="prize-emoji" id="prizeEmoji">🎁</div>
       <div class="prize-title" id="prizeTitle">奖品名称</div>
@@ -270,6 +271,7 @@
       <p class="coupon-terms">
         * 凭此卡截图联系送礼人本人兑换，仅限购买 iPad 11 Pro 时使用<br>
         * 不可兑换现金、不可转让、不可用于威胁送礼人多买礼物<br>
+        * 不可与"我不想上学"、"我要辞职"等其他人生大事一起提出<br>
         * 有效期至送礼人破产 / 后悔 / 寿星忘记为止（以先到者为准）
       </p>
     </div>
@@ -277,7 +279,7 @@
     <div id="emptyState" class="empty-state" style="display:none;">
       <div class="empty-emoji">🥺</div>
       <div class="prize-title">还没有抽奖记录哦～</div>
-      <p class="prize-desc">快去点一下上面的"点我抽奖"，抽到的第一份惊喜会被悄悄保存在这里，之后随时都能回来查看哦～</p>
+      <p class="prize-desc">你倒是抽一下啊？转盘就在上面，不会自己转的（虽然我也想让它自己转）</p>
     </div>
 
     <button class="close-modal-btn" id="closeModalBtn">开心收下 💖</button>
@@ -290,16 +292,16 @@
 
   // ---------- 奖品配置（概率从大到小） ----------
   var prizes = [
-    { name:"立减50%优惠券", weight:40, emoji:"🏷️",
-      desc:"手气不错～iPad 11 Pro 立减50%，直接砍掉一半价格！" },
-    { name:"立减60%优惠券", weight:30, emoji:"🎫",
-      desc:"哇！运气加成！iPad 11 Pro 立减60%，比购物节还猛！" },
+    { name:"立减50%优惠券", weight:35, emoji:"🏷️",
+      desc:"手气不错～iPad 11 Pro 直接腰斩，价格比我的头发掉得还快！" },
+    { name:"立减60%优惠券", weight:35, emoji:"🎫",
+      desc:"哇哦运气爆棚！立减60%，这价格连我自己都心动了，但没办法，是你的！" },
     { name:"立减90%优惠券", weight:15, emoji:"👑",
-      desc:"！！！欧皇附体！！！iPad 11 Pro 立减90%，几乎白送！送礼人已哭晕在厕所 😭💸" },
+      desc:"！！！欧皇附体！！！立减90%，我这个月的花呗已经开始颤抖了 😭💸" },
     { name:"一杯奶茶", weight:10, emoji:"🧋",
-      desc:"这次手气……有待提升。不过没关系，一杯奶茶的爱依然是爱！" },
+      desc:"这次手气……属于地板系。不过一杯奶茶的爱依然是爱，糖度可以自己选，人生已经很苦了！" },
     { name:"倒贴你哥一部iPad", weight:5, emoji:"🤡", isJoke:true,
-      desc:"叮！史诗级隐藏彩蛋——倒贴一部iPad！（纯属搞笑，别当真，我还没那么大方哈哈）不过手气这么“惊人”，特别奖励你：抽奖次数已重置，可以马上再抽一次真正的奖品啦！" }
+      desc:"叮！史诗级隐藏彩蛋——你要倒贴我一部iPad！（开玩笑的啦，别当真，我可没那么厚脸皮）不过运气这么“惊人”，特别奖励你：抽奖次数已重置，可以马上重新抽一个真的奖品！" }
   ];
 
   // ---------- 工具函数 ----------
@@ -351,7 +353,7 @@
     saveState(state);
     var btn = $("resetLink");
     var old = btn.textContent;
-    btn.textContent = "✅ 已重置！寿星的第一抽依然是随机的～";
+    btn.textContent = "✅ 已重置！证据已抹除，一切从头来 🕵️";
     setTimeout(function(){ btn.textContent = old; }, 2200);
   });
 
